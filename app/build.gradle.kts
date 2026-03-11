@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace = "pe.edu.idat.app_patitas_idat"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "pe.edu.idat.app_patitas_idat"
         minSdk = 24
-        targetSdk = 35
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
 
