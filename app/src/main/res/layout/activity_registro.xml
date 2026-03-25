@@ -6,9 +6,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.RegistroActivity">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:paddingStart="20dp"
+        android:paddingTop="15dp"
+        android:paddingEnd="20dp">
 
         <TextView
             android:id="@+id/tvemailusuario"
@@ -31,8 +35,8 @@
             android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:startIconDrawable="@drawable/outline_android_24"
-            app:layout_constraintTop_toBottomOf="@+id/tvemailusuario">
+            app:layout_constraintTop_toBottomOf="@+id/tvemailusuario"
+            app:startIconDrawable="@drawable/outline_android_24">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etnomusuario"
@@ -50,8 +54,8 @@
             android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:startIconDrawable="@drawable/outline_android_24"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout3"
+            app:startIconDrawable="@drawable/outline_android_24">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etapeusuario"
@@ -69,8 +73,8 @@
             android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:startIconDrawable="@drawable/outline_android_24"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout4">
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout4"
+            app:startIconDrawable="@drawable/outline_android_24">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etemailusuario"
@@ -88,8 +92,8 @@
             android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:startIconDrawable="@drawable/outline_android_24"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout6">
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout6"
+            app:startIconDrawable="@drawable/outline_android_24">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etcelusuario"
@@ -108,8 +112,8 @@
             android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:startIconDrawable="@drawable/outline_android_24"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout7">
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout7"
+            app:startIconDrawable="@drawable/outline_android_24">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etusureg"
@@ -173,10 +177,10 @@
 
         <Button
             android:id="@+id/btnirlogin"
+            style="?attr/materialButtonOutlinedStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/valbtnirlogin"
-            style="?attr/materialButtonOutlinedStyle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnregistrarme" />
