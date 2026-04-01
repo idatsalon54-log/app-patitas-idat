@@ -9,5 +9,6 @@ data class ResponseLogin(
     var email: String,
     var celular: String,
     var usuario: String,
-    var password: String
+    var password: String,
+    var esvoluntario: String
 )

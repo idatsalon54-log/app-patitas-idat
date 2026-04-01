@@ -15,14 +15,17 @@ import kotlinx.coroutines.MainScope
 import pe.edu.idat.app_patitas_idat.R
 import pe.edu.idat.app_patitas_idat.databinding.ActivityLoginBinding
 import pe.edu.idat.app_patitas_idat.databinding.ActivityMainBinding
+import pe.edu.idat.app_patitas_idat.db.entity.PersonaEntity
 import pe.edu.idat.app_patitas_idat.retrofit.response.ResponseLogin
 import pe.edu.idat.app_patitas_idat.util.AppMensaje
 import pe.edu.idat.app_patitas_idat.viewmodel.AuthViewModel
+import pe.edu.idat.app_patitas_idat.viewmodel.PersonaViewModel
 import kotlin.math.log
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityLoginBinding
     private lateinit var authViewModel: AuthViewModel
+    private lateinit var personaViewModel: PersonaViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,6 +39,8 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         }
         authViewModel = ViewModelProvider(this)
             .get(AuthViewModel::class.java)
+        personaViewModel = ViewModelProvider(this)
+            .get(PersonaViewModel::class.java)
         authViewModel.responseLogin.observe(this, Observer{
             response -> getDatosLogin(response)
         })
@@ -44,6 +49,12 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun getDatosLogin(login: ResponseLogin) {
         if(login.rpta){
+            val personaEntity = PersonaEntity(
+                login.idpersona.toInt(), login.nombres,
+                login.apellidos, login.email, login.celular,
+                login.usuario, login.password, login.esvoluntario
+            )
+            personaViewModel.insertar(personaEntity)
             startActivity(Intent(this,
                 MainActivity::class.java))
             finish()

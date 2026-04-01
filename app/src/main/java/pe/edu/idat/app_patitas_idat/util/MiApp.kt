@@ -1,4 +1,15 @@
 package pe.edu.idat.app_patitas_idat.util
 
-class MiApp {
+import android.app.Application
+
+class MiApp : Application() {
+
+    companion object{
+        lateinit var instance: MiApp
+    }
+
+    override fun onCreate() {
+        super.onCreate()
+        instance = this
+    }
 }

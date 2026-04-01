@@ -1,4 +1,5 @@
 package pe.edu.idat.app_patitas_idat.util
 
-class TipoMensaje {
+enum class TipoMensaje {
+    ERROR, SUCCESS, WARNING, INFO
 }

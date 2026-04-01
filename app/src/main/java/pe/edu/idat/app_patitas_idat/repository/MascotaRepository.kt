@@ -2,7 +2,9 @@ package pe.edu.idat.app_patitas_idat.repository
 
 import androidx.lifecycle.MutableLiveData
 import pe.edu.idat.app_patitas_idat.retrofit.PatitasCliente
+import pe.edu.idat.app_patitas_idat.retrofit.request.RequestVoluntario
 import pe.edu.idat.app_patitas_idat.retrofit.response.ResponseMascota
+import pe.edu.idat.app_patitas_idat.retrofit.response.ResponseRegistro
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -10,6 +12,7 @@ import retrofit2.Response
 class MascotaRepository {
 
     var responseMascota = MutableLiveData<List<ResponseMascota>>()
+    var responseRegistro = MutableLiveData<ResponseRegistro>()
 
     fun listarMascotas(): MutableLiveData<List<ResponseMascota>>{
         val request : Call<List<ResponseMascota>> = PatitasCliente.retrofitService.listarMascota()
@@ -26,6 +29,23 @@ class MascotaRepository {
             }
         })
         return responseMascota
+    }
+    fun registrarVoluntario(idPersona: Int) : MutableLiveData<ResponseRegistro>
+    {
+        val call: Call<ResponseRegistro> = PatitasCliente
+            .retrofitService.registrarVoluntario(RequestVoluntario(idPersona))
+        call.enqueue(object : Callback<ResponseRegistro>{
+            override fun onResponse(
+                call: Call<ResponseRegistro>,
+                response: Response<ResponseRegistro>
+            ) {
+                responseRegistro.value = response.body()
+            }
+            override fun onFailure(call: Call<ResponseRegistro>, t: Throwable) {
+
+            }
+        })
+        return responseRegistro
     }
 
 
